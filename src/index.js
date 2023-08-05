@@ -4,6 +4,7 @@ import { mainRouter } from './routes/main-route.js';
 import { studentRouter } from './routes/student-route.js';
 import { teacherRouter } from './routes/teacher-route.js';
 import { managerRouter } from './routes/manager-route.js';
+import { groupRouter } from './routes/group-route.js';
 
 const port = 5000;
 const app = express();
@@ -15,5 +16,6 @@ app.use('/', mainRouter);
 app.use('/students', studentRouter);
 app.use('/teachers', teacherRouter);
 app.use('/managers', managerRouter);
+app.use('/groups', groupRouter);
 
 app.listen(port, () => console.log(`Server listen on port ${port}...`));
