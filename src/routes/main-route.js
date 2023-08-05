@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { result } from '../mock/response.js';
-import { whoami } from '../mock/mock.js';
+import { delayPenalty, fees, whoami } from '../mock/mock.js';
 
 export const mainRouter = Router();
 
@@ -51,4 +51,19 @@ mainRouter.get('/whoami', (req, res) => {
       break;
   }
   res.json({ message: 'tepr' });
+});
+
+// Get all fees
+mainRouter.get('/fees', (req, res) => {
+  res.json(fees);
+});
+
+// Get current delay penalty
+mainRouter.get('/delay_penalty', (req, res) => {
+  res.json(delayPenalty);
+});
+
+//  Change current delay penalty
+mainRouter.post('/delay_penalty', (req, res) => {
+  res.json(delayPenalty);
 });
