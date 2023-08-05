@@ -3,6 +3,7 @@ import {
   claims,
   courses,
   fees,
+  grades,
   payments,
   students,
   transcripts,
@@ -155,4 +156,9 @@ studentRouter.get('/:studentId/fees/:feeId/payments', (req, res) => {
 studentRouter.post('/:studentId/fees/:feeId/payments', (req, res) => {
   const { studentId, feeId } = req.params;
   res.json(payments);
+});
+
+studentRouter.get('/:studentId/grades', (req, res) => {
+  const { studentId } = req.params;
+  res.json(grades);
 });
