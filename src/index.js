@@ -1,11 +1,18 @@
 import express, { json } from 'express';
 import cors from 'cors';
+
 import { mainRouter } from './routes/main-route.js';
 import { studentRouter } from './routes/student-route.js';
 import { teacherRouter } from './routes/teacher-route.js';
 import { managerRouter } from './routes/manager-route.js';
 import { groupRouter } from './routes/group-route.js';
 import { courseRouter } from './routes/course-route.js';
+
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+export const __dirname = path.dirname(__filename);
 
 const port = 5000;
 const app = express();

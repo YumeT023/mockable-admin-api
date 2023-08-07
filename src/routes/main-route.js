@@ -33,16 +33,16 @@ mainRouter.post('/login', (req, res) => {
 });
 
 mainRouter.get('/whoami', (req, res) => {
-  const auth = req.headers.authorization;
+  const { authorization } = req.headers;
   const { manager, student, teacher } = whoami;
-  switch (auth) {
-    case 'managerBearer':
+  switch (authorization) {
+    case 'Bearer managerBearer':
       res.json(manager);
       break;
-    case 'teacherBearer':
+    case 'Bearer teacherBearer':
       res.json(teacher);
       break;
-    case 'studentBearer':
+    case 'Bearer studentBearer':
       res.json(student);
       break;
 
@@ -50,7 +50,6 @@ mainRouter.get('/whoami', (req, res) => {
       res.json(student);
       break;
   }
-  res.json({ message: 'tepr' });
 });
 
 // Get all fees

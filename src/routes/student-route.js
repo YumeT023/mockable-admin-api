@@ -9,6 +9,7 @@ import {
   transcripts,
   versions,
 } from '../mock/mock.js';
+import { __dirname } from '../index.js';
 
 export const studentRouter = Router();
 
@@ -122,7 +123,17 @@ studentRouter.get(
   '/:studentId/transcripts/:transcriptId/versions/:versionId/raw',
   (req, res) => {
     const { studentId, transcriptId, versionId } = req.params;
-    res.json({ msg: 'temp' });
+    // res.json({ msg: 'tepr' });
+    res.sendFile(`${__dirname}/mock/mock.pdf`);
+  }
+);
+
+// Upload pdf of a specific version
+studentRouter.post(
+  '/:studentId/transcripts/:transcriptId/versions/latest/raw',
+  (req, res) => {
+    const { studentId, transcriptId } = req.params;
+    res.json(versions[0]);
   }
 );
 
