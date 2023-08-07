@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { result } from '../mock/response.js';
 import { delayPenalty, fees, whoami } from '../mock/mock.js';
 
 export const mainRouter = Router();

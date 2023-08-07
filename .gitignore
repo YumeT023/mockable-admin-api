@@ -1,4 +1,4 @@
 /node_modules
 
 .env
-src/mock
+src/mock/mock.rest
